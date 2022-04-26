@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     
       admin_path
     
-    when User
+    when Customer
     
       root_path
     
@@ -22,9 +22,9 @@ class ApplicationController < ActionController::Base
   
     when Admin
     
-      new_admin_session_path
+      admin_path
     
-    when User
+    when Customer
     
       root_path
     
