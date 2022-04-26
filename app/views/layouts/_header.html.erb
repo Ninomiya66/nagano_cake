@@ -1,0 +1,27 @@
+<header>
+  
+  <% if admin_signed_in? %>
+  
+    <%= link_to "NaganoCake", admin_path %>
+  
+  <% else %>
+  
+    <%= link_to "NaganoCake", root_path %>
+  
+  <% end %>
+  
+  <ul>
+    
+    <% if customer_signed_in? %>
+    
+    <li>
+      <%= link_to "My Page", root_path %>
+    </li>
+    
+    <li>
+      <%= link_to "商品一覧", root_path %>
+    </li>
+    
+  </ul>
+  
+</header>
