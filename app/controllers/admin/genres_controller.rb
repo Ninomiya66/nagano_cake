@@ -1,15 +1,64 @@
 class Admin::GenresController < ApplicationController
-  
+
   def index
-    
+
     @genre = Genre.new
-    
-    @genres = Genre
-    
+
+    @genres = Genre.all
+
+  end
+
+  def create
+
+    @genre = Genre.new(genre_params)
+
+    if @genre.save
+
+       @genres = Genre.all
+
+    else
+
+       @genres = Genre.all
+
+       render :index
+
+    end
+
   end
 
   def edit
-    
+
+    @genre = Genre.find(params[:id])
+
   end
-  
+
+  def update
+
+    @genre = Genre.find(params[:id])
+
+    if @genre.update(genre_params)
+
+      flash[:notice] = "Complete"
+
+      redirect_to admin_genres_path
+
+    else
+
+      flash[:notice] = "Can't complete"
+
+      render :edit
+
+    end
+
+  end
+
+  # ストロングパラメータ
+  private
+
+  def genre_params
+
+    params.require(:genre).permit(:name)
+
+  end
+
 end

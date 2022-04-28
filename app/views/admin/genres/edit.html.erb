@@ -1,2 +1,14 @@
-<h1>Admin::Genres#edit</h1>
-<p>Find me in app/views/admin/genres/edit.html.erb</p>
+<%= flash[:notice] %>
+<h1>ジャンル編集</h1>
+
+<%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
+
+  <%= f.label "ジャンル名" %></br>
+
+  <%= f.text_field :name %></br>
+
+  <%= f.submit "保存" %></br>
+
+  <%= link_to "Back", admin_genres_path %>
+
+<% end %>
