@@ -1,5 +1,7 @@
 <h1>商品新規登録</h1>
 
+<%= flash[:notice] %>
+
 <%= form_with model: @item, url: admin_items_path do |f| %>
 
 <table>
