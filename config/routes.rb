@@ -10,11 +10,13 @@ Rails.application.routes.draw do
   root 'public/homes#top'
 
   get 'about' => 'public/homes#about'
-  
+
   scope module: :public do
-    
+
     resources :items, only: [:index, :show]
-    
+
+    resources :customers, only: [:show, :edit, :check, :out]
+
   end
 
   # 管理者用
