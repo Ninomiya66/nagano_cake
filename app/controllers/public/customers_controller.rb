@@ -14,9 +14,35 @@ class Public::CustomersController < ApplicationController
 
   def update
 
+    @customer = current_customer
+
+    if @customer.update(customer_params)
+
+      redirect_to customer_path(current_customer)
+
+    else
+
+      render :edit
+
+    end
+
   end
 
   def check
+
+  end
+
+  def out
+
+    @customer = current_customer
+
+    @customer.update(is_active: true)
+
+    reset_session
+
+    flash[:notice] = "ありがとうございました。またのご利用をお待ちしております。"
+
+    redirect_to root_path
 
   end
 

@@ -1,2 +1,13 @@
-<h1>Public::Customers#check</h1>
-<p>Find me in app/views/public/customers/check.html.erb</p>
+<h2>本当に退会しますか？</h2>
+
+<p>
+  退会すると会員情報や
+  今までの購入履歴が閲覧できなくなります。</br>
+  退会をする場合は「退会」をクリックしてください。</br>
+</p>
+
+<%= link_to "Back", customer_path(current_customer) %>
+
+|
+
+<%= link_to "退会", out_customers_path, method: :patch %>

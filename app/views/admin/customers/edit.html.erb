@@ -4,40 +4,40 @@
 
   <%= f.label "会員ID" %>
 
-  <%= f.label "#{@customer.id}" %>
+  <%= f.label "#{@customer.id}" %></br>
 
 
   <%= f.label "氏名" %>
 
   <%= f.text_field :last_name %>
 
-  <%= f.text_field :first_name %>
+  <%= f.text_field :first_name %></br>
 
 
   <%=f.label "フリガナ" %>
 
   <%= f.text_field :last_name_kana %>
 
-  <%= f.text_field :first_name_kana %>
+  <%= f.text_field :first_name_kana %></br>
 
 
   <%= f.label "郵便番号" %>
 
-  <%= f.text_field :postal_code %>
+  <%= f.text_field :postal_code %></br>
 
 
   <%= f.label "住所" %>
 
-  <%= f.text_field :address %>
+  <%= f.text_field :address %></br>
 
 
   <%= f.label "電話番号" %>
 
-  <%= f.text_field :telephone_number %>
+  <%= f.text_field :telephone_number %></br>
 
   <%= f.label "メールアドレス" %>
 
-  <%= f.text_field :email %>
+  <%= f.text_field :email %></br>
 
 
   <%= f.label "会員ステータス" %>
@@ -46,7 +46,7 @@
   <%= f.label :is_active, "有効" %>
 
   <%= f.radio_button :is_active, true %>
-  <%= f.label :is_active, "退会" %>
+  <%= f.label :is_active, "退会" %></br>
 
   <%= f.submit "保存" %>
 

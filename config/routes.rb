@@ -15,7 +15,17 @@ Rails.application.routes.draw do
 
     resources :items, only: [:index, :show]
 
-    resources :customers, only: [:show, :edit, :check, :out]
+    resources :customers, only: [:show, :edit] do
+
+      collection do
+
+        get 'check'
+
+        patch 'out'
+
+      end
+
+    end
 
   end
 

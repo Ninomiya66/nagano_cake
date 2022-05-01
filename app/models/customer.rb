@@ -10,18 +10,18 @@ class Customer < ApplicationRecord
   validates :first_name_kana, presence: true
   validates :postal_code, presence: true
   validates :address, presence: true
-  validates :phone_number, presence: true
+  validates :telephone_number, presence: true
   validates :email, uniqueness: true
 
   def full_name
 
-    self.last_name + self.first_name
+    self.last_name + " " + self.first_name
 
   end
 
   def full_name_kana
 
-    "self.last_name_kana + self.first_name_kana"
+    self.last_name_kana + " " + self.first_name_kana
 
   end
 

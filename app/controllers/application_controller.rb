@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
       else
 
-        customers_path
+        customer_path(@customer.id)
 
       end
 
