@@ -14,7 +14,7 @@
 
     <th>氏名</th>
 
-    <td><%= full_name(@customer) %></td>
+    <td><%= @customer.full_name %></td>
 
   </tr>
 
@@ -22,7 +22,7 @@
 
     <th>フリガナ</th>
 
-    <td><%= full_name_kana(@customer) %></td>
+    <td><%= @customer.full_name_kana %></td>
 
   </tr>
 
@@ -70,18 +70,18 @@
 
       <td>有効</td>
 
-    <% endd %>
+    <% end %>
 
   </tr>
 
 </table>
 
-<P>
+<p>
 
-  <%= link_to "編集", edit_admin_customer_Path %>
+  <%= link_to "編集", edit_admin_customer_path %>
 
   |
 
-  <%= link_to "注文履歴一覧へ", admin_orders_path %>
+  <%= link_to "注文履歴一覧へ", root_path %>
 
-</P>
+</p>
