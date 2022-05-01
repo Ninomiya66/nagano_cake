@@ -10,3 +10,69 @@ Admin.create!(
   email: "admin@gmail.com",
   password: "adminadmin"
   )
+
+
+Genre.create!(
+  name: "ケーキ"
+  )
+
+Genre.create!(
+  name: "洋菓子"
+  )
+
+Genre.create!(
+  name: "和菓子"
+  )
+
+Genre.create!(
+  name: "焼き菓子"
+  )
+
+Genre.create!(
+  name: "チョコレート"
+  )
+
+Item.create!(
+  genre_id: 1,
+  name: "苺のショートケーキ(ホール)",
+  introduction: "厳選した苺を贅沢に使用しています。",
+  price: 3200,
+  is_active: [['販売中', true],['販売停止', false]],
+  image: open("./app/assets/images/whole_cake.png")
+  )
+
+Item.create!(
+  genre_id: 1,
+  name: "モンブラン",
+  introduction: "厳選した栗を使用しています。",
+  price: 320,
+  is_active: [['販売中', true],['販売停止', false]],
+  image: open("./app/assets/images/montblanc.png")
+  )
+
+  Item.create!(
+  genre_id: 5,
+  name: "イチゴチョコレート",
+  introduction: "こだわりの詰まったチョコレートです。",
+  price: 180,
+  is_active: [['販売中', true],['販売停止', false]],
+  image: open("./app/assets/images/chocolate_ichigo.png")
+  )
+
+  Item.create!(
+  genre_id: 3,
+  name: "紅葉饅頭",
+  introduction: "こだわりをすべてつめこんだ饅頭です。",
+  price: 150,
+  is_active: [['販売中', true],['販売停止', false]],
+  image: open("./app/assets/images/montblanc.png")
+  )
+
+  Item.create!(
+  genre_id: 2,
+  name: "シュークリーム",
+  introduction: "こだわりシュークリーム",
+  price: 220,
+  is_active: [['販売中', true],['販売停止', false]],
+  image: open("./app/assets/images/creampuff.png")
+  )
