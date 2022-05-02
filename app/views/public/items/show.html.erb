@@ -28,7 +28,7 @@
 
   <tr>
 
-    <th>販売状況</th>
+    <th></th>
 
     <td>
 
@@ -36,13 +36,17 @@
 
         ￥<%= @item.tax_price %>(税込)
 
-        <%= form_with model: @cart_item, url: cart_item_path: :post do |f| %>
+        <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
 
           <%= f.hidden_field :item_id, value: @item.id %>
 
-          <%= f.select :amount, (1..10).to_a, include_blank: "個数選択" %>
+          <%= f.label :数量 %>
+
+          <%= f.select :amount, (1..10).to_a, include_blank: "個数選択" %></br>
 
           <%= f.submit "カートに入れる" %>
+
+        <% end %>
 
       <% else %>
 
