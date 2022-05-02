@@ -2,7 +2,7 @@
 
 <% if @cart_items.present? %>
 
-  <%= link_to "カートを空にする",cart_items_path, method: :destroy, "data-confirm" => "本当に消しますか?" %>
+  <%= link_to "カートを空にする",cart_items_path, method: :delete, "data-confirm" => "本当に消しますか?" %>
 
   <table>
 

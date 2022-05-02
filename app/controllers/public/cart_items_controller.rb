@@ -1,14 +1,16 @@
 class Public::CartItemsController < ApplicationController
 
+  before_action :authenticate_customer!
+
   def index
 
     @cart_items = CartItem.where(customer:current_customer)
-
+    
   end
 
   def create
 
-   @cart_item = CartItem.new(cart_item_params)
+   @cart_item = CartItem.new(cart_items_params)
 
     @cart_item.customer_id = current_customer.id
 
@@ -71,9 +73,9 @@ class Public::CartItemsController < ApplicationController
   # ストロングパラメータ
   private
 
-  def cart_item_params
+  def cart_items_params
 
-    params.require(:cart_item).permit(:item_id, :amount)
+    params.require(:cart_item).permit(:customer_id, :item_id, :amount)
 
   end
 
