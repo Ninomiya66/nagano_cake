@@ -5,11 +5,5 @@ class CartItem < ApplicationRecord
 
   validates :customer_id, :item_id, :amount, presence: true
   validates :amount, numericality: {only_integer: true }
-# 小計
-def subtotal
-
-    item.tax_price * amount
-
-end
 
 end
