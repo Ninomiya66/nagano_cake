@@ -7,10 +7,6 @@ Rails.application.routes.draw do
     get 'orders/index'
     get 'orders/show'
   end
-  namespace :public do
-    get 'addresses/index'
-    get 'addresses/edit'
-  end
   # 顧客用
   # URL /customers/sign_in ...
   devise_for :customers,skip: [:passwords], controllers: {
@@ -43,6 +39,18 @@ Rails.application.routes.draw do
       collection do
 
         delete '/' => 'cart_items#all_destroy'
+
+      end
+
+    end
+
+    resources :orders, only: [:new, :index, :show, :create] do
+
+      collection do
+
+        post 'confirm'
+
+        get 'complete'
 
       end
 
