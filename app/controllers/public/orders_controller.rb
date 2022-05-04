@@ -12,7 +12,7 @@ class Public::OrdersController < ApplicationController
 
   def confirm
 
-    cart_items current_customer.cart_items
+    @cart_items = current_customer.cart_items
 
 
     @order = Order.new(
