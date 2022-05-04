@@ -20,13 +20,11 @@
 
   <tbody>
 
-    <%= @cart_items.each do |cart| %>
+    <% @cart_items.each do |cart| %>
 
     <tr>
 
       <td>
-
-        <%= imag_tag @cart_item.item.get_image(200,200) %>
 
         <%= cart.item.name %>
 
@@ -62,7 +60,7 @@
 
     <th>商品合計</th>
 
-    <td><%= taotal_price(@cart_items) %></td>
+    <td><%= total_price(@cart_items) %></td>
 
   </tr>
 
@@ -70,7 +68,7 @@
 
     <th>請求金額</th>
 
-    <td>￥<%= all_cost(@order) %></td>
+    <td>￥<%= allcost(@order) %></td>
 
   </tr>
 

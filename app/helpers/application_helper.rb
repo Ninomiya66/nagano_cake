@@ -47,9 +47,9 @@ end
 
   end
 
-  def all_cost(order)
+  def allcost(order)
 
-    total_price(current_cart) + order.pos
+    total_price(current_cart) + order.postage
 
   end
 

@@ -2,6 +2,8 @@ class Public::OrdersController < ApplicationController
 
    before_action :authenticate_customer!
 
+   include ApplicationHelper
+
   def new
 
     @order = Order.new
@@ -19,7 +21,7 @@ class Public::OrdersController < ApplicationController
       customer: current_customer,
       payment_method: params[:order][:payment_method])
 
-    @order.price_total = billing(@order)
+    @order.price_total = allcost(@order)
 
     # my_addressに1（自宅）
     if params[:order][:my_address] == "1"
@@ -89,9 +91,9 @@ class Public::OrdersController < ApplicationController
 
       @order_detail.order_id = @order.id
 
-      @order_detail.count = cart_item.count
+      @order_detail.count = cart_item.amount
 
-      @order_detail.price = cart_item.item.price * cart_item.count
+      @order_detail.price = cart_item.item.price * cart_item.amount
 
       @order_detail.save
 
@@ -108,7 +110,7 @@ class Public::OrdersController < ApplicationController
 
   end
 
-  def index
+  def indexS
 
     @orders = current_customer.orders
 
