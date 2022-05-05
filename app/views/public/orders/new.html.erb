@@ -10,8 +10,8 @@
   <%= f.radio_button :payment_method, :"銀行振込" %>
   <%= f.label :"銀行振込" %></br>
 
-  <%= f.radio_button :my_address, 1, checked: true %>
-  <%= f.label :自宅 %></br>
+  <%= f.radio_button :my_address, "1", checked: true %>
+  <%= f.label :自宅住所 %></br>
   <%= "〒#{current_customer.postal_code} #{current_customer.address}" %></br>
   <%= "#{full_name(current_customer)}" %></br>
 
