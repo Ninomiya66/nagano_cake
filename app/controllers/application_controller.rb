@@ -8,8 +8,7 @@ class ApplicationController < ActionController::Base
 
       if resource_or_scope.is_a?(Admin)
 
-        # admin_orders_path
-        root_path
+        admin_path
 
       else
 

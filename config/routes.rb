@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # 顧客用
   # URL /customers/sign_in ...
   devise_for :customers,skip: [:passwords], controllers: {
@@ -66,6 +65,16 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
 
     resources :customers, only: [:index, :show, :edit, :update]
+
+    resources :orders, only: [:show, :update] do
+
+      member do
+
+        resource :order_details, only: [:update]
+
+      end
+
+    end
 
     get '/' => 'homes#top'
 
