@@ -58,7 +58,7 @@
 
     <th>商品合計</th>
 
-    <td><%= price_total(@order_details) %>円</td>
+    <td><%= total_price(@order_details) %>円</td>
 
   </tr>
 
@@ -110,9 +110,9 @@
 
       <td><%= order_detail.item.tax_price %>円</td>
 
-      <td><%= order_detail.item.amount %></td>
+      <td><%= order_detail.amount %></td>
 
-      <td><%= allcost(order_detail) %></td>
+      <td><%= subtotal(order_detail) %></td>
 
     </tr>
 

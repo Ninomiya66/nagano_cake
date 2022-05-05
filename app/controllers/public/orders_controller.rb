@@ -91,7 +91,7 @@ class Public::OrdersController < ApplicationController
 
       @order_detail.order_id = @order.id
 
-      @order_detail.count = cart_item.amount
+      @order_detail.amount = cart_item.amount
 
       @order_detail.price = cart_item.item.price * cart_item.amount
 
@@ -110,9 +110,9 @@ class Public::OrdersController < ApplicationController
 
   end
 
-  def indexS
+  def index
 
-    @orders = current_customer.orders
+  @orders = current_customer.orders
 
   end
 
@@ -128,7 +128,7 @@ class Public::OrdersController < ApplicationController
 
   def order_params
 
-    params.require(:order).permit(:postal_code, :address, :name, :payment_method, :total_payment)
+    params.require(:order).permit(:postal_code, :address, :name, :payment_method, :price_total)
 
   end
 

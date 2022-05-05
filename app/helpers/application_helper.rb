@@ -25,6 +25,12 @@ def current_cart
 
 end
 
+def tax_price
+
+    (price * 1.1).floor
+
+end
+
   # 小計
 def subtotal(cart_item)
 
