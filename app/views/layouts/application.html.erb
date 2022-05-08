@@ -24,47 +24,11 @@
 
     <%= render "layouts/header" %>
 
-    <main calss="mb-auto">
+    <main class="vh-100 mb-auto">
       <%= yield %>
     </main>
 
-  <footer calss="bg-dark text-white pt-5 pb-4">
-
-    <div class="container">
-
-      <div calss="row no-gutters">
-
-        <div calss="col-md-4">
-
-          <p>長野県にあるケーキ屋さん</p>
-
-          <%= image_tag 'cake1.jpg', :size => '300x150' %>
-
-        </div>
-
-        <div class="col-md-8">
-
-            <h6 class="text-black mt-2 mb-3">Link</h6>
-
-            <ul class="p-0 list-unstyled">
-
-              <li>
-                <a href="" title="About" class="text-black-50">会社概要</a>
-              </li>
-
-              <li>
-                <a href="" title="License informations" class="text-black-50">プライバシーポリシー</a>
-              </li>
-
-            </ul>
-
-          </div>
-
-      </div>
-
-    </div>
-
-  </footer>
+    <%= render "layouts/footer" %>
 
  </body>
 

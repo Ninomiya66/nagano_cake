@@ -1,32 +1,55 @@
-<p>
+<div class="container">
 
-  <span>Welcome Nagano Cake</span></br>
-  長野県にある洋菓子店「ながのCAKE」の通販サイトです。</br>
-  会員でない方も商品の閲覧はできますが、</br>
-  商品を購入するには会員登録が必要になります。</br>
+  <div class="row">
 
-</p>
+    <div class="col-xs-12 mx-auto">
 
-<h1>新着商品</h1>
+      <div class="text-center">
 
-<% @items.first(3).each do |item| %>
+        <p class="mt-4 mb-2">
 
-  <%= link_to item_path(item) do %>
+          <h5>Welcome Nagano Cake</h5></br>
+          長野県にある洋菓子店「ながのCAKE」の通販サイトです。</br>
+          会員でない方も商品の閲覧はできますが、</br>
+          商品を購入するには会員登録が必要になります。</br>
 
-    <%= image_tag item.get_image(200,200) %>
+        </p>
 
-  <% end %>
+      </div>
 
-  <% if item.is_active == true %>
+    </div>
 
-    <p><%= item.price %>円(税込)</p>
+  </div>
 
-  <% else %>
+</div>
 
-    <p>販売停止中</p>
+<div class="container mb-4">
 
-  <% end %>
+  <h1>新着商品</h1>
 
-<% end %>
+  <div class="row mb-4">
+    <% @items.first(3).each do |item| %>
 
-<%= link_to "商品一覧へ", items_path %>
+      <%= link_to item_path(item) do %>
+
+        <%= image_tag item.get_image(200,200) %>
+
+      <% end %>
+
+    <% if item.is_active == true %>
+
+      <p><%= item.price %>円(税込)</p>
+
+    <% else %>
+
+      <p>販売停止中</p>
+
+    <% end %>
+
+    <% end %>
+
+  </div>
+
+<%= link_to "商品一覧へ", items_path, class: "btn btn-outline-info btn-lg mx-auto" %>
+
+</div>
