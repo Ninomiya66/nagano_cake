@@ -1,8 +1,7 @@
 class Public::OrdersController < ApplicationController
 
-   before_action :authenticate_customer!
-
-   include ApplicationHelper
+  include ApplicationHelper
+  before_action :authenticate_customer!
 
   def new
 
@@ -74,7 +73,7 @@ class Public::OrdersController < ApplicationController
     @order.save
 
     # 新規の場合保存
-    if params[:order][:ship] == "1"
+    if params[:order][:ship] =="1"
 
       current_customer.address.create(address_params)
 
