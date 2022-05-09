@@ -1,11 +1,10 @@
-<h1>商品詳細</h1>
+<h1 class="mt-4 mb-2 text-center">商品詳細</h1>
 
-<table>
+<table class="table">
 
   <tr>
 
-    <th>商品名</th>
-
+    <td>商品詳細</td>
     <td><%= @item.name %></td>
 
   </tr>
@@ -14,7 +13,7 @@
 
     <th>商品画像</th>
 
-    <td><%= image_tag @item.get_image(200,200) %></td>
+    <td><%= image_tag @item.get_image(150,150) %></td>
 
   </tr>
 

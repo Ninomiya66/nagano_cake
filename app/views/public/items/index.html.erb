@@ -1,43 +1,51 @@
 <div class="container">
 
-  <h1>商品一覧</h1>
-
   <div class="row">
 
-    <h4><%= @total.count %>件</h4>
+    <div class="col-sm-12 px-sm-0 mt-4 mb-2">
 
-    <table class="table">
+      <h1>商品一覧</h1>
 
-      <% @items.each do |item| %>
+      <h5><%= @total.count %>件</h5>
 
-      <tr>
-        <th scope="col" style="width: 30%">商品名</th>
-        <td><%= item.name %></td>
-      </tr>
+    </div>
 
-      <tr>
-        <th>商品画像</th>
-        <td class=>
+  </div>
+
+  <div class="row mt-2 mb-2 text-center">
+
+    <% @items.each do |item| %>
+
+    <div class="col-xs-10 col-sm-10 col-md-6 col-lg-3">
+
+      <div class="card mt-3" style="width: 16rem; height: 16rem;">
+
+        <p class="card-text">
           <%= link_to item_path(item.id) do %>
             <%= image_tag item.get_image(80,80) %>
           <% end %>
-        </td>
-      </tr>
+        </p>
 
-      <tr>
-        <th>税込価格(税抜価格)</th>
-        <td>
+      <div class="card-body">
+
+        <p class="card-text"><%= item.name %></p>
+
+        <h5 class="card-title">税込価格(税抜価格)</h5>
+        <p class="card-text">
           <% if item.is_active == true %>
             ￥<%= item.tax_price %>(<%= item.price %>)
           <% else %>
             SOLD OUT
           <% end %>
-        </td>
-      </tr>
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
 
       <% end %>
-
-    </table>
 
   </div>
 
