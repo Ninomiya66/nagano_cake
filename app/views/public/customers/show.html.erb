@@ -1,58 +1,58 @@
-<h1>My Page</h1>
+<div class="container">
 
-<P>登録者情報</P>
+  <h1 class="mt-4 mb-4">My Page</h1>
 
-<p><%= link_to "編集", edit_customer_path %></p>
+  <div class="row">
 
-<table>
+    <h4 class="mt-2 mt-2">登録者情報</h4>
+    <p><%= link_to "編集", edit_customer_path, class: "btn btn-outline-success ml-5" %></p>
 
-  <tr>
+    <table class="table">
 
-    <th>氏名</th>
+      <tr>
+        <th>氏名</th>
+        <td><%= @customer.full_name %></td>
+      </tr>
 
-    <td><%= @customer.full_name %></td>
+      <tr>
+        <th>フリガナ</th>
+        <td><%= @customer.full_name_kana %></td>
+      </tr>
 
-  </tr>
+      <tr>
+        <th>郵便番号</th>
+        <td><%= @customer.postal_code %></td>
+      </tr>
 
-  <tr>
+      <tr>
+        <th>住所</th>
+        <td><%= @customer.address %></td>
+      </tr>
 
-    <th>フリガナ</th>
+      <tr>
+        <th>電話番号</th>
+        <td><%= @customer.telephone_number %></td>
+      </tr>
 
-    <td><%= @customer.full_name_kana %></td>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= @customer.email %></td>
+      </tr>
 
-  </tr>
+    </table>
 
-  <tr>
+    <div class="mr-4">
 
-    <th>郵便番号</th>
+      <p>配送先<%= link_to "一覧を見る", addresses_path, class: "btn btn-outline-primary mt-3 ml-5 mb-3"%></p>
 
-    <td><%= @customer.postal_code %></td>
+    </div>
 
-  </tr>
+    <div class="ml-4">
 
-  <tr>
+      <p>注文履歴<%= link_to "一覧を見る", orders_path,class: "btn btn-outline-primary mt-3 ml-5 mb-3"%></p>
 
-    <th>住所</th>
+    </div>
 
-    <td><%= @customer.address %></td>
+  </div>
 
-  </tr>
-
-  <tr>
-
-    <th>電話番号</th>
-
-    <td><%= @customer.telephone_number %></td>
-
-  </tr>
-
-  <tr>
-
-    <th>メールアドレス</th>
-
-    <td><%= @customer.email %></td>
-
-  </tr>
-
-</table>
-
+</div>

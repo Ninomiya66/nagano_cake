@@ -1,29 +1,56 @@
-<h1>会員情報編集</h1>
+<div class="container">
 
-<%= form_with model: @customer, url: customer_path, method: :patch do |f| %>
+  <h1 class="mt-4 mb-4">会員情報編集</h1>
 
-<%= f.label :氏名 %>
-<%= f.text_field :last_name %>
-<%= f.text_field :first_name %></br>
+  <%= form_with model: @customer, url: customer_path, method: :patch do |f| %>
 
-<%= f.label :フリガナ %>
-<%= f.text_field :last_name_kana %>
-<%= f.text_field :first_name_kana %></br>
+  <div class="form-group">
 
-<%= f.label :郵便番号 %>
-<%= f.text_field :postal_code %></br>
+    <%= f.label :氏名 %></br>
+    <%= f.text_field :last_name %>
+    <%= f.text_field :first_name %></br>
 
-<%= f.label :住所 %>
-<%= f.text_field :address %></br>
+  </div>
 
-<%= f.label :電話番号 %>
-<%= f.text_field :telephone_number %></br>
+  <div class="form-group">
 
-<%= f.label :メールアドレス %>
-<%= f.text_field :email %></br>
+    <%= f.label :フリガナ %></br>
+    <%= f.text_field :last_name_kana %>
+    <%= f.text_field :first_name_kana %></br>
 
-<%= f.submit "保存" %></br>
+  </div>
 
-<%= link_to "退会する", check_customers_path %>
+  <div class="form-group">
 
-<% end %>
+    <%= f.label :郵便番号 %></br>
+    <%= f.text_field :postal_code %></br>
+
+  </div>
+
+  <div class="form-group">
+
+    <%= f.label :住所 %></br>
+    <%= f.text_field :address, size: "35%" %></br>
+
+  </div>
+
+  <div class="form-group">
+
+    <%= f.label :電話番号 %><br>
+    <%= f.text_field :telephone_number %></br>
+
+  </div>
+
+  <div class="form-group">
+
+    <%= f.label :メールアドレス %></br>
+    <%= f.text_field :email %></br>
+
+  </div>
+
+    <%= f.submit "保存", class: "btn btn-outline-success mt-5 mr-3 ml-3 mb-5 " %>
+    <%= link_to "退会する", check_customers_path, class: "btn btn-outline-danger" %>
+
+    <% end %>
+
+</div>
