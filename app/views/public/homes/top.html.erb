@@ -25,31 +25,50 @@
 
 <div class="container mb-4">
 
-  <h1>新着商品</h1>
+  <h1 class="mb-4">新着商品</h1>
 
   <div class="row mb-4">
+
     <% @items.first(3).each do |item| %>
+
+    <div class="col-md-4 col-sm-8">
+
+      <div class="card w-100 bg-transporent border-0" style="width: 16rem; height: 16rem;">
 
       <%= link_to item_path(item) do %>
 
-        <%= image_tag item.get_image(200,200) %>
+        <div class="img-wrap"><%= image_tag item.get_image(150,150) %></div>
 
       <% end %>
 
-    <% if item.is_active == true %>
+        <div class="card-body">
 
-      <p><%= item.price %>円(税込)</p>
+          <p class="card-text"><%= item.name %></p>
 
-    <% else %>
+          <% if item.is_active == true %>
 
-      <p>販売停止中</p>
+            <p class="card-text"><%= item.price %>円(税込)</p>
 
-    <% end %>
+          <% else %>
+
+            <p class="card-text">販売停止中</p>
+
+          <% end %>
+
+        </div>
+
+      </div>
+
+    </div>
 
     <% end %>
 
   </div>
 
-<%= link_to "商品一覧へ", items_path, class: "btn btn-outline-info btn-lg mx-auto" %>
+<div class="text-right">
+
+<%= link_to "商品一覧へ", items_path, class: "btn btn-outline-info btn-lg mx-auto " %>
+
+</div>
 
 </div>

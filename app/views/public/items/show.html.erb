@@ -1,35 +1,17 @@
-<h1 class="mt-4 mb-2 text-center">商品詳細</h1>
+<h1 class="mt-5 mb-4 text-center">商品詳細</h1>
 
-<table class="table">
+<div class="text-center">
 
-  <tr>
+    <h6 class="font-weight-bold"><%= @item.name %></h6>
 
-    <td>商品詳細</td>
-    <td><%= @item.name %></td>
+    <p><%= image_tag @item.get_image(150,150) %></p>
 
-  </tr>
 
-  <tr>
+    <h5 class="font-weight-bold">商品説明</h5>
 
-    <th>商品画像</th>
+    <p><%= @item.introduction %></p>
 
-    <td><%= image_tag @item.get_image(150,150) %></td>
-
-  </tr>
-
-  <tr>
-
-    <th>商品説明</th>
-
-    <td><%= @item.introduction %></td>
-
-  </tr>
-
-  <tr>
-
-    <th></th>
-
-    <td>
+    <p>
 
       <% if @item.is_active == true %>
 
@@ -39,11 +21,11 @@
 
           <%= f.hidden_field :item_id, value: @item.id %>
 
-          <%= f.label :数量 %>
+          <%= f.label :数量, class: "h5" %>
 
           <%= f.select :amount, (1..10).to_a, include_blank: "個数選択" %></br>
 
-          <%= f.submit "カートに入れる" %>
+          <%= f.submit "カートに入れる", class: "btn btn-secondary mt-2 mb-2" %>
 
         <% end %>
 
@@ -53,8 +35,6 @@
 
       <% end %>
 
-    </td>
+      </p>
 
-  </tr>
-
-</table>
+    </div>
