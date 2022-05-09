@@ -67,14 +67,15 @@
 
     </div>
 
-      <%= f.submit "確認画面へ", class: "btn btn-success mt-3 mb-3" %>
+      <%= f.submit "確認画面へ", class: "btn btn-success mb-3" %>
 
     <% end %>
 
   <% else %>
 
     <p>カートに商品がありません。</p>
-    <p><%= link_to "商品一覧", items_path, class: "btn btn-primary" %>から商品をお探しください。</p>
+
+    <p><%= link_to "商品一覧", items_path, class: "btn-outline-primary mr-2" %>から商品をお探しください。</p>
 
   <% end %>
 
