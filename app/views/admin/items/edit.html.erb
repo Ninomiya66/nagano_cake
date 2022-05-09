@@ -1,77 +1,70 @@
-<h1>商品詳細編集</h1>
+<div class="container">
 
-<%= flash[:notice] %>
+  <h1 class="mt-4 mb-4">商品詳細編集</h1>
 
-<%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
+  <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
 
-  <table>
+    <table>
 
-    <tr>
+      <tr>
+        <div class="form-group">
+          <th><%= f.label :商品名 %></th>
+          <td><%= f.text_field :name %></td>
+        </div>
+      </tr>
 
-      <th><%= f.label :商品名 %></th>
+      <tr>
+        <div class="form-group">
+          <th><%= f.label :商品画像 %></th>
+          <td><%= f.file_field :image, accept: "image/*" %></td>
+        </div>
+      </tr>
 
-      <td><%= f.text_field :name %></td>
+      <tr>
+        <div class="form-group">
+          <th><%= f.label :商品説明 %></th>
+          <td><%= f.text_area :introduction, size: "30x5" %></td>
+        </div>
+      </tr>
 
-    </tr>
+      <tr>
+        <div class="form-group">
+          <th><%= f.label :ジャンル %></th>
+          <td><%= f.collection_select(:genre_id, Genre.all, :id, :name) %></td>
+        </div>
+      </tr>
 
-    <tr>
+      <tr>
+        <div class="form-group">
+          <th><%= f.label :税抜価格 %></th>
+          <td><%= f.text_field :price, size: "10" %>円</td>
+        </div>
+      </tr>
 
-      <th><%= f.label :商品画像 %></th>
+      <tr>
+        <div class="form-group">
+          <th><%= f.label :販売状況 %></th>
+          <td>
+            <%= f.radio_button :is_active, true, checked: true %>
+            <%= f.label :is_active, "販売中" %>
 
-      <td><%= f.file_field :image, accept: "image/*" %></td>
+            <%= f.radio_button :is_active, false, checked: false %>
+            <%= f.label :is_active, "販売停止中" %>
+          </td>
+        </div>
+      </tr>
 
-    </tr>
+      <tr>
+        <th>
+          <%= f.submit "保存", class: "btn btn-outline-success mr-3" %>
 
-    <tr>
+          |
 
-      <th><%= f.label :商品説明 %></th>
-
-      <td><%= f.text_area :introduction, size: "40x10" %></td>
-
-    </tr>
-
-    <tr>
-
-      <th><%= f.label :ジャンル %></th>
-
-      <td><%= f.collection_select(:genre_id, Genre.all, :id, :name) %></td>
-
-    </tr>
-
-    <tr>
-
-      <th><%= f.label :税抜価格 %></th>
-
-      <td><%= f.text_field :price, size: "10" %>円</td>
-
-    </tr>
-
-    <tr>
-
-      <th><%= f.label :販売状況 %></th>
-
-      <td>
-
-        <%= f.radio_button :is_active, true, checked: true %>
-        <%= f.label :is_active, "販売中" %>
-
-        <%= f.radio_button :is_active, false, checked: false %>
-        <%= f.label :is_active, "販売停止中" %>
-
-      </td>
-
-    </tr>
-
-    <tr>
-
-      <th><%= f.submit "保存" %></th>
-
-      |
-
-      <td><%= link_to "Back", admin_item_path %></td>
-
-    </tr>
-
-<% end %>
+          <%= link_to "Back", admin_item_path, class: "btn btn-outline-info ml-3" %>
+        </th>
+      </tr>
+  <% end %>
 
   </table>
+
+</div>

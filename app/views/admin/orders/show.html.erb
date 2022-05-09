@@ -1,44 +1,46 @@
-<h1>注文履歴詳細</h1>
+<div class="container">
 
-<table>
+  <h1 class="mt-4 mb-4">注文履歴詳細</h1>
 
-  <thead>
+  <table class="table">
 
-    <tr>
-      <th>購入者</th>
-      <td><%= full_name(@order.customer) %></td>
-    </tr>
+    <thead>
 
-    <tr>
-      <th>注文日</th>
-      <td><%= @order.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
-    </tr>
+      <tr>
+        <th>購入者</th>
+        <td><%= full_name(@order.customer) %></td>
+      </tr>
 
-    <tr>
-      <th>配送先</th>
-      <td>〒<%= full_address(@order) %></td>
-    </tr>
+      <tr>
+        <th>注文日</th>
+        <td><%= @order.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+      </tr>
 
-    <tr>
-      <th>支払方法</th>
-      <td><%= @order.payment_method %></td>
-    </tr>
+      <tr>
+        <th>配送先</th>
+        <td>〒<%= full_address(@order) %></td>
+      </tr>
 
-    <tr>
-      <th>注文ステータス</th>
-      <td>
-        <%= form_with model: @order, url: admin_order_path, method: :patch do |f| %>
-          <%= f.select :order_status, Order.order_statuses.keys %>
-          <%= f.submit '更新' %>
-        <% end %>
-      </td>
-    </tr>
+      <tr>
+        <th>支払方法</th>
+        <td><%= @order.payment_method %></td>
+      </tr>
 
-  </thead>
+      <tr>
+        <th>注文ステータス</th>
+        <td>
+          <%= form_with model: @order, url: admin_order_path, method: :patch do |f| %>
+            <%= f.select :order_status, Order.order_statuses.keys %>
+            <%= f.submit '更新', class: "btn btn-outline-success ml-2" %>
+          <% end %>
+        </td>
+      </tr>
 
-</table>
+    </thead>
 
-  <table>
+  </table>
+
+  <table class="table">
 
     <thead>
 
@@ -65,7 +67,7 @@
           <td>
             <%= form_with model: order_detail, url: admin_order_details_path(order_detail.id), method: :patch do |f| %>
               <%= f.select :make_status, OrderDetail.make_statuses.keys %>
-              <%= f.submit "更新" %>
+              <%= f.submit "更新", class: "btn btn-outline-success ml-2" %>
             <% end %>
           </td>
 
@@ -77,7 +79,7 @@
 
   </table>
 
-  <table>
+  <table class="table">
 
     <tr>
 
@@ -103,8 +105,10 @@
     <tr>
 
       <th></th>
-      <td><%= link_to "注文履歴へ", admin_path %></td>
+      <td class="text-right"><%= link_to "注文履歴へ", admin_path, class: "btn btn-outline-info" %></td>
 
     </tr>
 
   </table>
+
+</div>

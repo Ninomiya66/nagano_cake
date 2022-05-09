@@ -1,57 +1,54 @@
-<h1>注文履歴一覧</h1>
+<div class="container">
 
-<table>
+  <h1 class="mt-4 mb-4">注文履歴一覧</h1>
 
-  <thead>
+  <table class="table">
 
-    <tr>
+    <thead>
 
-      <th>購入日時</th>
+      <tr>
 
-      <th>購入者</th>
+        <th>購入日時</th>
+        <th>購入者</th>
+        <th>注文個数</th>
+        <th>注文ステータス</th>
 
-      <th>注文個数</th>
+      </tr>
 
-      <th>注文ステータス</th>
+    </thead>
 
-    </tr>
+    <tbody>
 
-  </thead>
+      <% @orders.each do |order| %>
 
-  <tbody>
+        <tr>
 
-    <% @orders.each do |order| %>
+          <td>
+            <%= link_to admin_order_path(order) do %>
 
-    <tr>
+              <%= order.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
 
-      <td>
+            <% end %>
+          </td>
+          <td><%= full_name(order.customer) %></td>
+          <td>
+            <% @sum = 0 %>
+            <% order.order_details.each do |order_detail| %>
 
-        <%= link_to admin_order_path(order) do %>
+              <% @sum += order_detail.amount %>
 
-          <%= order.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+            <% end %>
 
-        <% end %>
+            <%= @sum %>
+          </td>
+          <td><%= order.order_status %></td>
 
-      </td>
+        </tr>
 
-      <td><%= full_name(order.customer) %></td>
+      <% end %>
 
-      <td>
+    </tbody>
 
-        <% order.order_details.each do |order_detail| %>
+  </table>
 
-          <%= order_detail.amount %>
-
-        <% end %>
-
-      </td>
-
-      <td><%= order.order_status %></td>
-
-    </tr>
-
-    <% end %>
-
-  </tbody>
-
-</table>
+</div>

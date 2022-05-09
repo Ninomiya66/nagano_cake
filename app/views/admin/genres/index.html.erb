@@ -1,35 +1,50 @@
 <%= flash[:notice] %>
 
-<h1>ジャンル一覧・追加</h1>
+<div class="container">
 
-<%= form_with model: @genre, url: admin_genres_path, method: :post, remote: true do |f| %>
+  <h1 class="mt-4 mb-4">ジャンル一覧・追加</h1>
 
-  <%= f.label :name, "ジャンル名" %></br>
+  <div class="row text-center">
 
-  <%= f.text_field :name, id: "form" %></br>
+    <div class="col-md-12 mt-4">
 
-  <%= f.submit "追加" %>
+      <%= form_with model: @genre, url: admin_genres_path, method: :post, remote: true do |f| %>
 
-<% end %>
+      <div class="form-group">
 
-<table>
+        <%= f.label :name, "ジャンル名", class: "mr-4 mb-3" %>
 
-  <thead>
+        <%= f.text_field :name, id: "form", class: "mr-4" %>
 
-    <tr>
+        <%= f.submit "追加", class: "btn btn-outline-success py-1" %>
 
-      <th>ジャンル</th>
+      </div>
 
-      <th></th>
+      <% end %>
 
-    </tr>
+      <table class="table">
 
-  </thead>
+        <thead>
 
-  <tbody>
+          <tr>
 
-    <%= render "genres", genre: @genres %>
+            <th>ジャンル</th>
+            <th></th>
 
-  </tbody>
+          </tr>
 
-</table>
+        </thead>
+
+        <tbody>
+
+          <%= render "genres", genre: @genres %>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

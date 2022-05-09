@@ -1,64 +1,57 @@
-<h1>商品一覧</h1>
+<div class="container">
 
-<table>
+  <h1 class="mt-4 mb-4">商品一覧</h1>
 
-  <thead>
+  <table class="table table-hover">
 
-    <tr>
+    <thead>
 
-      <th>商品ID</th>
+      <tr>
 
-      <th>ジャンル</th>
+        <th>商品ID</th>
+        <th>ジャンル</th>
+        <th>商品名</th>
+        <th>商品画像</th>
+        <th>商品説明</th>
+        <th>税抜価格</th>
+        <th>販売状況</th>
 
-      <th>商品名</th>
+      </tr>
 
-      <th>商品画像</th>
+    </thead>
 
-      <th>商品説明</th>
+    <tbody>
 
-      <th>税抜価格</th>
+      <% @items.each do |item| %>
 
-      <th>販売状況</th>
+        <tr>
 
-    </tr>
+          <td><%= item.id %></td>
+          <td><%= item.genre.name %></td>
+          <td><%= link_to item.name, admin_item_path(item.id), class: "text-dark" %></td>
+          <td><%= image_tag item.get_image(100,100) %></td>
+          <td><%= item.introduction %></td>
+          <td><%= item.price %></td>
+          <td>
+            <% if item.is_active == true %>
 
-  </thead>
+              <p>販売中</p>
 
-  <tbody>
+            <% else %>
 
-    <% @items.each do |item| %>
-    <tr>
+              <p>販売停止中</p>
 
-      <td><%= item.id %></td>
+            <% end %>
+          </td>
 
-      <td><%= item.genre.name %></td>
+        </tr>
 
-      <td><%= link_to item.name, admin_item_path(item.id) %></td>
+      <% end %>
 
-      <td><%= image_tag item.get_image(100,100) %></td>
+    </tbody>
 
-      <td><%= item.introduction %></td>
+  </table>
 
-      <td><%= item.price %></td>
+  <%= paginate @items, theme: 'bootstrap-5' %>
 
-      <td>
-
-        <% if item.is_active == true %>
-
-          <p>販売中</p>
-
-        <% else %>
-
-          <p>販売停止中</p>
-
-        <% end %>
-
-      </td>
-
-    </tr>
-
-    <% end %>
-
-  </tbody>
-
-</table>
+</div>

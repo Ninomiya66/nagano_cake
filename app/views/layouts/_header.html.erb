@@ -61,6 +61,13 @@
 
          <% elsif admin_signed_in? %>
 
+            <li class="nav-item">
+             <%= link_to admin_customers_path, class: 'nav-link text-dark' do %>
+             <i class="fas fa-users"></i>
+             会員一覧
+             <% end %>
+           </li>
+
            <li class="nav-item">
              <%= link_to new_admin_item_path, class: 'nav-link text-dark' do %>
              <i class="fas fa-cookie"></i>

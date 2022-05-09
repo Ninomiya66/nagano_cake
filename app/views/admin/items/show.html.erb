@@ -1,69 +1,54 @@
-<h1>商品詳細</h1>
+<div class="container">
 
-<%= flash[:notice] %>
+  <h1 class="mt-4 mb-4">商品詳細</h1>
 
-<table>
+  <table class="table table-bordered">
 
-  <tr>
+    <tr>
+      <th>商品名</th>
+      <td><%= @item.name %></td>
+    </tr>
 
-    <th>商品名</th>
+    <tr>
+      <th>商品画像</th>
+      <td><%= image_tag @item.get_image(100,100) %></td>
+    </tr>
 
-    <td><%= @item.name %></td>
+    <tr>
+      <th>商品説明</th>
+      <td><%= @item.introduction %></td>
+    </tr>
 
-  </tr>
+    <tr>
+      <th>税込価格(税抜価格)</th>
+      <td>￥<%= @item.tax_price %>(<%= @item.price %>)</td>
+    </tr>
 
-  <tr>
+    <tr>
+      <th>販売状況</th>
+      <td>
+        <% if @item.is_active == true %>
 
-    <th>商品画像</th>
+          <P>販売中</P>
 
-    <td><%= image_tag @item.get_image(100,100) %></td>
+        <% else %>
 
-  </tr>
+          <p>販売停止中</p>
 
-  <tr>
+        <% end %>
+      </td>
+    </tr>
 
-    <th>商品説明</th>
-
-    <td><%= @item.introduction %></td>
-
-  </tr>
-
-  <tr>
-
-    <th>税込価格(税抜き価格)</th>
-
-    <td>￥<%= @item.tax_price %>(<%= @item.price %>)</td>
-
-  </tr>
-
-  <tr>
-
-    <th>販売状況</th>
-
-    <td>
-
-      <% if @item.is_active == true %>
-
-        <P>販売中</P>
-
-      <% else %>
-
-        <p>販売停止中</p>
-
-      <% end %>
-
-    </td>
-
-  </tr>
-
-</table>
+  </table>
 
 <p>
 
-  <%= link_to "編集", edit_admin_item_path(@item.id) %>
+  <%= link_to "編集", edit_admin_item_path(@item.id), class: "btn btn-outline-success mr-3" %>
 
   |
 
-  <%= link_to "Back", admin_items_path %>
+  <%= link_to "Back", admin_items_path, class: "btn btn-outline-info ml-3" %>
 
 </p>
+
+</div>

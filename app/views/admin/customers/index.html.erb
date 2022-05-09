@@ -1,1 +1,55 @@
-<h1>会員一覧</h1>
+<div class="container">
+
+  <h1 class="mt-3 mb-3">会員一覧</h1>
+
+  <div class="row d-flex justify-content-center">
+
+    <table class="table">
+
+      <thead>
+
+        <tr>
+
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <% @customers.each do |customer| %>
+
+          <tr>
+
+            <td class="col-xs-1"><%= customer.id %></td>
+            <td class="text-left"><%= link_to full_name(customer), admin_customer_path(customer), class: "text-dark" %></td>
+            <td class="text-left"><%= customer.email %></td>
+            <td class="col-xs-2">
+
+              <% if customer.is_active == true %>
+
+                <p class="text-danger">退会済み</p>
+
+              <% else %>
+
+                <p class="text-success">有効</p>
+
+              <% end %>
+
+            </td>
+
+          </tr>
+
+        <% end %>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
