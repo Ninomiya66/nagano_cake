@@ -5,7 +5,7 @@ class Public::CartItemsController < ApplicationController
   def index
 
     @cart_items = CartItem.where(customer:current_customer)
-    
+
   end
 
   def create
@@ -30,7 +30,12 @@ class Public::CartItemsController < ApplicationController
 
     else
 
-      render("items/show")
+      @item = Item.find(params[:cart_item][:item_id])
+      @cart_item = CartItem.new
+
+      flash[:alert] = "個数を選択してください。"
+
+      render ("public/items/show")
 
     end
 

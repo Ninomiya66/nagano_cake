@@ -2,20 +2,21 @@
 
 class Public::SessionsController < Devise::SessionsController
 
-  before_action :reject_customer, only: [:create]
+  before_action :customer_state, only: [:create]
 
   protected
 
 
-  def reject_customer
+  def customer_state
 
-    @customer = Customer.find_by(email: params[:customer][:email].downcase)
+    # 退会しているか判断する!!
+    @customer = Customer.find_by(email: params[:customer][:email])
 
     if @customer
 
       if (@customer.valid_password?(params[:customer][:password]) && (@customer.active_for_authentication? == false))
 
-        flash[:alert] = "このアカウントは退会済みです。"
+        flash[:alert] ="このアカウントは退会済みです"
 
         redirect_to new_customer_session_path
 
@@ -23,11 +24,11 @@ class Public::SessionsController < Devise::SessionsController
 
     else
 
-      flash[:alert] = "必須項目を入力してください"
-
     end
 
   end
+
+
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
