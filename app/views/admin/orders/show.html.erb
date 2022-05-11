@@ -29,7 +29,7 @@
       <tr>
         <th>注文ステータス</th>
         <td>
-          <%= form_with model: @order, url: admin_order_path, method: :patch do |f| %>
+          <%= form_with(model: @order, url: admin_order_path, method: :patch, local: false) do |f| %>
             <%= f.select :order_status, Order.order_statuses.keys %>
             <%= f.submit '更新', class: "btn btn-outline-success ml-2" %>
           <% end %>
@@ -65,7 +65,8 @@
           <td><p><%= order_detail.amount %></p></td>
           <td><p><%= subtotal(order_detail) %></p></td>
           <td>
-            <%= form_with model: order_detail, url: admin_order_details_path(order_detail.id), method: :patch do |f| %>
+            <%= order_detail.make_status %>
+            <%= form_with(model: order_detail, url: admin_order_details_path(order_detail.id), method: :patch, local: false) do |f| %>
               <%= f.select :make_status, OrderDetail.make_statuses.keys %>
               <%= f.submit "更新", class: "btn btn-outline-success ml-2" %>
             <% end %>

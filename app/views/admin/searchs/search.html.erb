@@ -1,0 +1,7 @@
+<% if @moadel == 'customer' %>
+
+<h3>Customerの検索結果　検索ワード：<% @content %></h3>
+
+<%= render "customers/form", customers: @records %>
+
+<% end %>
