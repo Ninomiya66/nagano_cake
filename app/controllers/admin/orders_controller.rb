@@ -20,7 +20,7 @@ class Admin::OrdersController < ApplicationController
 
     redirect_to admin_order_path(@order)
 
-    if @order_status == "入金確認"
+     if @order_status == "入金確認"
 
       @order.order_details.each do |order_detail|
 
@@ -28,7 +28,7 @@ class Admin::OrdersController < ApplicationController
 
       end
 
-    end
+     end
 
   end
 

@@ -21,26 +21,13 @@ class Admin::OrderDetailsController < ApplicationController
 
     end
 
-    # 注文個数と製作済みの個数が同じなら
-    if @order.order_details.amount == @order.order_details.where(make_status: 3).amount
-
-      @order.update(order_status: 3)
-
-      flash[:notice] = "ステータを更新しました。"
-
-      @order.save
-
-    end
-
-    redirect_to request.referer
-
   end
 
   # ストロングパラメータ
 
   def order_detail_params
 
-    prams.require(:order_detail).permit(:order_id, :make_status, :amount)
+    params.require(:order_detail).permit(:order_id, :make_status, :amount)
 
   end
 

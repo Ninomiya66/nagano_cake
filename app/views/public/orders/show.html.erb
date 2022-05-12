@@ -85,6 +85,7 @@
       <th>単価(税込)</th>
       <th>個数</th>
       <th>小計</th>
+      <th>製作ステータス</th>
 
     </tr>
 
@@ -103,6 +104,8 @@
       <td><%= order_detail.amount %></td>
 
       <td><%= subtotal(order_detail) %></td>
+
+      <td><%= order_detail.make_status %></td>
 
     </tr>
 

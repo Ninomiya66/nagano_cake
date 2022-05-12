@@ -60,3 +60,4 @@ gem 'refile',require: "refile/rails",github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
 gem 'bootstrap5-kaminari-views', '~> 0.0.1'
+gem "enum_help"

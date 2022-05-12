@@ -4,6 +4,16 @@ class ApplicationController < ActionController::Base
 
  private
 
+    def after_inactive_sign_up_path_for(resource_or_scope)
+
+      if resource_or_scope.is_a?(Public)
+
+        customer_path(current_customer)
+
+      end
+
+    end
+
     def after_sign_in_path_for(resource_or_scope)
 
       if resource_or_scope.is_a?(Admin)
@@ -12,7 +22,7 @@ class ApplicationController < ActionController::Base
 
       else
 
-        customer_path(@customer.id)
+       root_path
 
       end
 
